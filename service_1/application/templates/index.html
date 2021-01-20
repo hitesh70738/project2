@@ -1,0 +1,16 @@
+<h1>Car makes and colours</h1>
+
+<h2>refresh page to generate new car and colour</h2>
+
+<p>
+    The car {{ car_name }}, is in the colour {{ colour }} and the price is {{ price }}
+</p>
+
+<h3>Car prices </h3>
+
+<p>
+    {% for i in cars %}
+    The car {{ i.car_manufacturer }} is in the colour {{ i.car_colour }} and the price is {{ i.price }}
+    <br>
+    {% endfor %}
+</p>
