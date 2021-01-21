@@ -1,0 +1,83 @@
+pipeline{
+    agent any
+    environment{
+        DATABASE_URI = credentials("DATABASE_URI")
+        AUTHOR = credentials("AUTHOR")
+    }
+    stages{
+        stage("Testing"){
+            steps{
+                cd service_1
+                python3 -m venv venv
+                source venv/bin/activate
+                pip3 install -r requirements.txt
+                pip3 install pytest pytest-cov application requests_mock
+                python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+                deactivate
+                cd ..
+
+                cd service_2
+                python3 -m venv venv
+                source venv/bin/activate
+                pip3 install -r requirements.txt
+                pip3 install pytest pytest-cov application requests_mock
+                python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+                deactivate
+                cd ..
+
+                cd service_3
+                python3 -m venv venv
+                source venv/bin/activate
+                pip3 install -r requirements.txt
+                pip3 install pytest pytest-cov application requests_mock
+                python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+                deactivate
+                cd ..
+
+                cd service_4
+                python3 -m venv venv
+                source venv/bin/activate
+                pip3 install -r requirements.txt
+                pip3 install pytest pytest-cov application requests_mock
+                python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+                deactivate
+                cd ..
+                // write tests for each service
+                // pytest on each service
+            }
+        }
+        stage("Build & Push"){
+            steps{
+                // install docker and docker-compose
+                // add jenkins to docker group
+                // sudo su - jenkins, docker login
+                // docker-compose build and push
+                sh "bash jenkins/build_images.sh"
+            }
+        }
+        stage("Config Management (ansible)"){
+            steps{
+                // write out playbook, inventory
+                // with roles
+                // ssh keys generated from jenkins machine for jenkins user (ssh-keygen)
+                // sudo su - jenkins, install ansible on this machine for jenkins
+                // jenkins runs playbook
+                sh "cd ansible && /home/hites/.local/bin/ansible-playbook -i inventory playbook.yaml"
+            }
+        }
+        stage("Deploy"){
+            steps{
+                // copy docker-compose.yaml over ssh (scp command)
+                // set env variables on swarm manager
+                // ssh into swarm manager to deploy the stack
+
+            }
+        }
+    }
+    post {
+        always {
+            junit 'junit.xml'
+            cobertura coberturaReportFiles: 'coverage.xml', failNoReports: false
+        }    
+    }
+}
