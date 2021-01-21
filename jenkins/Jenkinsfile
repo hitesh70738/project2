@@ -34,6 +34,7 @@ pipeline{
                 // copy docker-compose.yaml over ssh (scp command)
                 // set env variables on swarm manager
                 // ssh into swarm manager to deploy the stack
+                sh "bash jenkins/deploy.sh"
 
             }
         }
@@ -41,7 +42,7 @@ pipeline{
     post {
         always {
             junit 'junit.xml'
-            cobertura coberturaReportFiles: 'coverage.xml', failNoReports: false
+            cobertura coberturaReportFile: 'coverage.xml', failNoReports: false
         }    
     }
 }
