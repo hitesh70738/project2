@@ -11,7 +11,7 @@ services:
     environment:
       DATABASE_URI: ${DATABASE_URI}
   service2-backend:
-    image: ${AUTHOR}car-project_service2-backend
+    image: ${AUTHOR}/car-project_service2-backend
     container_name: service2-backend
     build: ./service_2
   service3-backend:
