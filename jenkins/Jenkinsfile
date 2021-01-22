@@ -9,7 +9,7 @@ pipeline{
             steps{
                 sh "bash jenkins/test.sh"
             }
-        //}
+        }
         //stage("Build & Push"){
         //    steps{
                 // install docker and docker-compose
