@@ -10,15 +10,15 @@ pipeline{
                 sh "bash jenkins/test.sh"
             }
         }
-        //stage("Build & Push"){
-        //    steps{
+        stage("Build & Push"){
+            steps{
                 // install docker and docker-compose
                 // add jenkins to docker group
                 // sudo su - jenkins, docker login
                 // docker-compose build and push
-        //        sh "bash jenkins/build_images.sh"
-        //    }
-        //}
+                sh "bash jenkins/build_images.sh"
+            }
+        }
         //stage("Config Management (ansible)"){
         //    steps{
                 // write out playbook, inventory
