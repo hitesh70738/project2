@@ -3,6 +3,7 @@ pipeline{
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
         AUTHOR = credentials("AUTHOR")
+        replicas = 5
     }
     stages{
         stage("Testing"){
