@@ -10,19 +10,21 @@ pipeline{
     stages{
         stage("Testing"){
             steps{
-                if (env.rollback == 'false'){
-                sh "bash jenkins/test.sh"
+                script{
+                    if (env.rollback == 'false'){
+                        sh "bash jenkins/test.sh"   
+                    }   
                 }
             }
         }
+           
         stage("Build & Push"){
             steps{
-                // install docker and docker-compose
-                // add jenkins to docker group
-                // sudo su - jenkins, docker login
-                // docker-compose build and push
-                if (env.rollback == 'false')
-                sh "bash jenkins/build_images.sh"
+                script{
+                    if (env.rollback == 'false'){
+                        sh "bash jenkins/build_images.sh"
+                    }    
+                }
             }
         }
         stage("Config Management (ansible)"){
@@ -32,7 +34,6 @@ pipeline{
                 // ssh keys generated from jenkins machine for jenkins user (ssh-keygen)
                 // sudo su - jenkins, install ansible on this machine for jenkins
                 // jenkins runs playbook
-                if (env.rollback == 'false')
                 sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
             }
         }
