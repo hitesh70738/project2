@@ -4,6 +4,8 @@ services:
     container_name: service1-frontend
     image: hitesh70738/car-project_service1-frontend
     build: ./service_1
+    deploy:
+      replicas: 5
     ports:
     - target: 5000
       published: 5000
@@ -14,11 +16,17 @@ services:
     image: ${AUTHOR}/car-project_service2-backend
     container_name: service2-backend
     build: ./service_2
+    deploy:
+      replicas: 5
   service3-backend:
     image: ${AUTHOR}/car-project_service3-backend
     container_name: service3-backend
     build: ./service_3
+    deploy:
+      replicas: 5
   service4-backend:
     image: ${AUTHOR}/car-project_service4-backend
     container_name: service4-backend
     build: ./service_4
+    deploy:
+      replicas: 5
