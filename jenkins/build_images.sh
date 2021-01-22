@@ -6,7 +6,6 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo usermod -aG docker $(whoami)
 sudo usermod -aG docker jenkins
-docker login
-sudo su jenkins
-docker-compose up -d
+newgrp docker
+docker-compose build --parallel
 docker-compose push
