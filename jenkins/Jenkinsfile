@@ -3,30 +3,21 @@ pipeline{
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
         AUTHOR = credentials("AUTHOR")
-        app_version = '2.0'
-        rollback = 'false'
         replicas = 5
     }
     stages{
         stage("Testing"){
             steps{
-                script{
-                    if (env.rollback == 'false'){
-                        sh "bash jenkins/test.sh"   
-                    }   
-                }
+                sh "bash jenkins/test.sh"
             }
         }
-           
         stage("Build & Push"){
             steps{
-                script{
-                    if (env.rollback == 'false'){
-                        sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose push"
-                        sh "docker system prune -af"
-                        sh "bash jenkins/build_images.sh"
-                    }    
-                }
+                // install docker and docker-compose
+                // add jenkins to docker group
+                // sudo su - jenkins, docker login
+                // docker-compose build and push
+                sh "bash jenkins/build_images.sh"
             }
         }
         stage("Config Management (ansible)"){
