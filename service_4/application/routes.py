@@ -27,4 +27,4 @@ def price():
     else:
         car_price = 10000  
 
-    return Response(str(car_price*0.5), mimetype='text/plain')
+    return Response(str(car_price), mimetype='text/plain')
