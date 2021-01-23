@@ -12,6 +12,8 @@ services:
       protocol: tcp
     environment:
       DATABASE_URI: ${DATABASE_URI}
+    deploy:
+      replicas: 5
   service2-backend:
     image: ${AUTHOR}/car-project_service2-backend
     container_name: service2-backend
