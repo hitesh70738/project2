@@ -24,8 +24,6 @@ def price():
         car_price = 28000
     elif package['car_make'] == 'BMW' and package['car_colour'] == 'red':
         car_price = 32000
-    elif package['car_make'] == 'VW' and package['car_colour'] == 'magenta':
-        car_price = 15000
     else:
         car_price = 10000  
 
