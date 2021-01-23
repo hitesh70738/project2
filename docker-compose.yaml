@@ -4,6 +4,8 @@ services:
     container_name: service1-frontend
     image: hitesh70738/car-project_service1-frontend
     build: ./service_1
+    deploy:
+      replicas: 5
     ports:
     - target: 5000
       published: 5000
