@@ -165,6 +165,14 @@ Overall, this project was successful in creating a service-orientated architectu
 * Add images of the car
 * integrate project tracking with the version control system
 
+<h1>Acknowledgements</h1>
+Harry Volker - He has gone above beyond to help with this project and making sure that the fundamentals have been understood.
+
+<br>
+<br>
+
+<h1>Authors</h1>
+Hitesh Patel
 
 
 
