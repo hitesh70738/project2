@@ -38,12 +38,15 @@ When service 2, 3, and 4 generate some information, that information is stored i
 
 * Service 2 & 3 (backend) generates a car make (service 2) and a car colour (service 3) when a GET request is sent from service 1. 
 
-* Service 4 (front-end) When service 2 and 3 are sent to  service 1 a GET request is sent to service 4 which will generate a price based upon service 2 & 3 and send this information back to service 1 (front-end).
+* Service 4 (front-end) When service 2 and 3 are sent to  service 1 via a GET request, it will then be sent service 4 via a POST request. Here, service 4 will generate a price based upon service 2 & 3 and send this information back to service 1 (front-end).
 
 The image below is a visual representation of how the services works. 
 
 ![Services](https://imgur.com/CCUo3gg.jpeg)
 
+<h3>CI/CD pipeline</h3>
+
+![CI/CD pipeline](https://imgur.com/skmmuOp.jpeg)
 
 
 
