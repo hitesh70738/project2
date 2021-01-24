@@ -155,7 +155,9 @@ The front-end design of the application is built using basic HTML. However, it i
 
 <h1>Further Improvements</h1>
 
-Overall, this projetc was successful in creating a service-orientated architecture for my application.
+Overall, this project was successful in creating a service-orientated architecture for my application. However, there are a few improvements that I would like to implement:
+
+* 
 
 
 

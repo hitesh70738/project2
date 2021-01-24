@@ -23,6 +23,8 @@ def price():
     elif package['car_make'] == 'Toyota' and package['car_colour'] == 'red':
         car_price = 28000
     elif package['car_make'] == 'BMW' and package['car_colour'] == 'red':
-        car_price = 32000  
+        car_price = 32000
+    else:
+        car_price = 12000  
 
     return Response(str(car_price), mimetype='text/plain')
