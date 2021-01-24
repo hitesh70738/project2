@@ -24,8 +24,9 @@ To achieve these requirements, I decided to create an applciation called We Buy 
 * service #3: Responsible for generating a random colour.
 * service #4: will generate a price based upon service #2 and service #3.
 
-<h2>Architecture</h2>
-<h3>Database Structure</h3>
+<h1>Architecture</h1>
+
+<h2>Database Structure</h2>
 
 ![ERD](https://imgur.com/gP3UYOd.jpeg)
 
@@ -67,7 +68,7 @@ Third stage is jenkins runnning the ansible folder. This initialises ansible by 
 In the fourth stage the applcaition will be deployed as a stack across the swarm nodes, making it accessible by users via the nginx load balancer.
 In more depth: For this project I have one manager node and one worker node. Ansible pulls down the necessary files to the swarm manager and then across to the worker node. I have also used 5 replicas of each service. Replcias define how many instances of the service template will run. This allows to introduce redundancy to the containerised application. Furthermore, this exits so that no-one container is overloaded and if the case occurs where a container goes down the whole applciation won't go down. 
 
-<h2>Project Tracking</h2>
+<h1>Project Tracking</h1>
 
 Trello, along with agile methodologies, was used to track the progression of the project and show my workflow, from start to finish. The link to the full trello board can be found [here](https://trello.com/b/FmZ729be/car-project).
 
