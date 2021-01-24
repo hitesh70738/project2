@@ -150,6 +150,12 @@ The cobertura report provides a more greater insght into the coverage report. Li
 
 <h1>Front end</h1>
 
+The front-end design of the application is built using basic HTML. However, it is in a stable state that meets the MVP requirements.
+
+
+<h1>Further Improvements</h1>
+
+Overall, this projetc was successful in creating a service-orientated architecture for my application.
 
 
 
