@@ -86,18 +86,64 @@ Below is the risk assessment for the project split into two sections, before and
 ![after-risk-assessment](https://imgur.com/jW0P92v.jpeg)
 
 <h1>Testing</h1>
+I used pytest to run unit and unit mock tests on the application. Unit test validate that each unit of the application performs as designed. Unit mock tests allow to mock responses from components such as Application Programming Interfaces (APIs). This is helpful as it allows for testing parts of a micro-service. 
+<br>
+<br>
 
+<h3>Service #1</h3>
+Testing service 1 required inputs from three other services. This is why I imported patch, a mehtod form the unittest.mock module. In return a mock test was conduted which will produce results that will be expected from the live application, however it will not make the application live. A 100% coverage for service 1 was achieved, meaning that the code  produced the results that is expected when the application goes live. 
+<br>
+<br>
 
+![service1-test](https://imgur.com/cHGJN2T.jpeg)
+<br>
+<br>
 
+<h3>Service #2</h3>
+<br>
+For this service a unit test was conducted and 100% coverage was achieved, this means that from the list of car makes a random car make was be generated using a get request.   
 
-The junit report produced below  shows that all 21 tests passed in the latest build. Moreover, the report also shows where previous builds have failed, thus making it easier to find how many tests failed. 
+![service2-test](https://imgur.com/qwd8imn.jpeg)
+<br>
+<br>
 
+<h3>Service #3</h3>
+<br>
+For this service a unit test was conducted and 100% coverage was achieved, this means that from the list of car colours a random car colour was be generated using a get request. 
+<br>
+<br>
+
+![service3-test](https://imgur.com/lgsc0LB.jpeg)
+<br>
+<br>
+
+<h3>Service #4</h3>
+<br>
+For service 4 a unit test was conducted and achieved a 100% coverage. This means service 4 successfully managed to use service 2 and 3 to generate the correct price for each car make and colour.
+<br>
+<br>
+
+![service4-test](https://imgur.com/WDIEKr9.jpeg)
+<br>
+<br>
+
+<h3>Junit and Cobertura reports</h3>
+<br>
+The junit report produced below shows that all 21 tests passed in the latest build. Moreover, the report also shows where previous builds have failed, thus making it easier to find how many tests failed. 
 
 ![junit-report](https://imgur.com/PkGQ5XZ.jpeg)
 
-The cobertura report provides a more greater insght into the test reports
+<br>
 
+![junit-error](https://imgur.com/4qk7Qlu.jpeg)
+With earlier builds for example build 47, 10 tests failed and 11 passed by clicking on the graph it shows why the 10 tests failed. As you can see the error was due to an assertion error. This is how junit reports make it easy to analyse errors. 
 
+<br>
+<br>
+
+![cobertura-report](https://imgur.com/Gqrun6W.jpeg)
+
+The cobertura report provides a more greater insght into the coverage report. Like junit report we can see a graph produced, as well as we can see how many files, packages and lines passed the tests.
 
 
 
