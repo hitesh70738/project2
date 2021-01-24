@@ -44,7 +44,7 @@ The image below is a visual representation of how the services works.
 
 ![Services](https://imgur.com/CCUo3gg.jpeg)
 
-<h3>CI/CD pipeline</h3>
+<h2>CI/CD pipeline</h2>
 
 ![CI/CD pipeline](https://imgur.com/LEgktG3.jpeg)
 <br>
@@ -66,6 +66,28 @@ Third stage is jenkins runnning the ansible folder. This initialises ansible by 
 <br>
 In the fourth stage the applcaition will be deployed as a stack across the swarm nodes, making it accessible by users via the nginx load balancer.
 In more depth: For this project I have one manager node and one worker node. Ansible pulls down the necessary files to the swarm manager and then across to the worker node. I have also used 5 replicas of each service. Replcias define how many instances of the service template will run. This allows to introduce redundancy to the containerised application. Furthermore, this exits so that no-one container is overloaded and if the case occurs where a container goes down the whole applciation won't go down. 
+
+<h2>Project Tracking</h2>
+
+Trello, along with agile methodologies, was used to track the progression of the project and show my workflow, from start to finish. The link to the full trello board can be found [here](https://trello.com/b/FmZ729be/car-project).
+
+![trello-board](https://imgur.com/dDSojpp.jpeg)
+
+<h1>Risk Assessment</h2>
+
+Below is the risk assessment for the project split into two sections, before and after. The before sections outlines the potential risks that I knew at the beginning of the project. The after sections outlines the potential risks that I knew by the end of the project. The risks in this project were dealt with and taken into consideration
+
+<h2>Before</h2>
+
+![risk-assessment1](https://imgur.com/MRLPFyO.jpeg)
+
+<h2>After</h2>
+
+![after-risk-assessment](https://imgur.com/jW0P92v.jpeg)
+
+
+
+
 
 The junit report produced below  shows that all 21 tests passed in the latest build. Moreover, the report also shows where previous builds have failed, thus making it easier to find how many tests failed. 
 
