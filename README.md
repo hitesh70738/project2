@@ -46,8 +46,15 @@ The image below is a visual representation of how the services works.
 
 <h3>CI/CD pipeline</h3>
 
-![CI/CD pipeline](https://imgur.com/9gcJGaQ.jpeg)
+![CI/CD pipeline](https://imgur.com/LEgktG3.jpeg)
 <br></br>
+
+How the CI/CD pipeline works
+
+Jenkins is a CI/CD pipline tool. It triggers a build when, via a webhook, a new change has been pushed to the version control system. For this project I used git hub as my version control system, and was connected to jenkins via a webhook. Any changes that I would make on git hub, it would trigger a new build on jenkins. The next stage is testing. Unit tests and mock tests are written up to test the every aspect of the pplication. If the testing section has returned back with no bugs, the next stage will kick off. The stage after testing is the building images and pushing it to docker hub (artefact repository).
+Jenkins will then initialise ansible, this will intiate the swarm manager, swarm worker and nginx. Ansible will also ensure that the worker node is connected to the manager node via a join token.  Once, the swarm is initialised, the code is pulled from jenkins and any images required will be pulled from the artefact repository. Once the swarm is created and stack deployed to nginx the application is live now for the user. 
+
+
 
 
 
