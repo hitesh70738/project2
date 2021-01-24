@@ -136,6 +136,7 @@ The junit report produced below shows that all 21 tests passed in the latest bui
 <br>
 
 ![junit-error](https://imgur.com/4qk7Qlu.jpeg)
+
 With earlier builds for example build 47, 10 tests failed and 11 passed by clicking on the graph it shows why the 10 tests failed. As you can see the error was due to an assertion error. This is how junit reports make it easy to analyse errors. 
 
 <br>
