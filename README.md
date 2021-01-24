@@ -150,14 +150,21 @@ The cobertura report provides a more greater insght into the coverage report. Li
 
 <h1>Front end</h1>
 
-The front-end design of the application is built using basic HTML. However, it is in a stable state that meets the MVP requirements.
+The front-end design of the application is built using basic HTML. However, it is in a stable state that meets the MVP requirements. This is service 1 presenting the front end. It will keep generating a new car make, colour and price.
+
+![front-end](https://imgur.com/7unXdiB.jpeg)
 
 
 <h1>Further Improvements</h1>
 
 Overall, this project was successful in creating a service-orientated architecture for my application. However, there are a few improvements that I would like to implement:
 
-* 
+* Use CSS to make the application look more asthetically pleasing.
+* Implement nexus - a open-source repository
+* Try and use another swarm-worker so there are more containers
+* Add images of the car
+* integrate project tracking with the version control system
+
 
 
 
