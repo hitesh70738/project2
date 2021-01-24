@@ -46,7 +46,9 @@ The image below is a visual representation of how the services works.
 
 <h3>CI/CD pipeline</h3>
 
-![CI/CD pipeline](https://imgur.com/skmmuOp.jpeg)
+![CI/CD pipeline](https://imgur.com/9gcJGaQ.jpeg)
+<br></br>
+
 
 
 
