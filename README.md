@@ -47,12 +47,34 @@ The image below is a visual representation of how the services works.
 <h3>CI/CD pipeline</h3>
 
 ![CI/CD pipeline](https://imgur.com/LEgktG3.jpeg)
-<br></br>
+<br>
+Jenkins is a CI/CD pipline tool. It triggers a build when, via a webhook, a new change has been pushed to the version control system. For this project I used github as my version control system, and was connected to jenkins via a webhook. The next stage is testing. Unit tests and mock tests are written up to test the every aspect of the application. If the testing section has returned back with no bugs, the next stage will kick off. The stage after testing is the building images and pushing it to docker hub (artefact repository). Jenkins will then initialise ansible, this will intiate the swarm manager and swarm worker and will also configure nginx. Ansible will also ensure that the worker node is connected to the manager node via a join token.  Once, the swarm is initialised, the code is pulled from jenkins and any images required will be pulled from the artefact repository. Once the swarm is created and stack deployed to nginx the application is live now for the user.
 
-How the CI/CD pipeline works
+![stage-veiw](https://imgur.com/Yghmmj0.jpeg)
 
-Jenkins is a CI/CD pipline tool. It triggers a build when, via a webhook, a new change has been pushed to the version control system. For this project I used git hub as my version control system, and was connected to jenkins via a webhook. Any changes that I would make on git hub, it would trigger a new build on jenkins. The next stage is testing. Unit tests and mock tests are written up to test the every aspect of the pplication. If the testing section has returned back with no bugs, the next stage will kick off. The stage after testing is the building images and pushing it to docker hub (artefact repository).
-Jenkins will then initialise ansible, this will intiate the swarm manager, swarm worker and nginx. Ansible will also ensure that the worker node is connected to the manager node via a join token.  Once, the swarm is initialised, the code is pulled from jenkins and any images required will be pulled from the artefact repository. Once the swarm is created and stack deployed to nginx the application is live now for the user. 
+The above image is the build logs of the project-pipeline and shows the order of implementation for each stage. Build logs make it clear to see if a stage has passed or failed.. First, the environment variables need to be set as credentials on jenkins. Credentials such as the database uri and the author need to be set in jenkins, in order for it to know what to refference when these variables are called upon. Furthermore, the benefit of using environement variables on jenkins is that once they are set they won't need to be changed. Keeping creddentials private is very important and will be displayed in the risk assessment. For this project I used the following plugins, cobertura and junit. Cobertura allows to capture code coverage report. Jenkins will generate the trend report of coverage.  Junit provides a publisher that consumes test reports generated during the buiilds and provides visualization of th etest results. It also produces a web UI for tests reportss, tracking failure, and etc. 
+<br>
+<br>
+First stage is testing, this is where pytests are conducted on the code. As mentioned above I used cobertura and junit to generate testing reports. The reports generated can be used to help debug and issues that occur. 
+<br>
+<br>
+Second stage is is building the images and pushing it to the artefact repository, docker hub. In this stage, docker and docker compose are installed. Docker compose is then used to build the images and push them to docker hub. 
+<br>
+<br>
+Third stage is jenkins runnning the ansible folder. This initialises ansible by setting uop the swarm, swarm manager and swarm worker nodes are set up and joined together via a join token. This stage also configures the nginx load balancer.
+<br>
+<br>
+In the fourth stage the applcaition will be deployed as a stack across the swarm nodes, making it accessible by users via the nginx load balancer.
+In more depth: For this project I have one manager node and one worker node. Ansible pulls down the necessary files to the swarm manager and then across to the worker node. I have also used 5 replicas of each service. Replcias define how many instances of the service template will run. This allows to introduce redundancy to the containerised application. Furthermore, this exits so that no-one container is overloaded and if the case occurs where a container goes down the whole applciation won't go down. 
+
+The junit report produced below  shows that all 21 tests passed in the latest build. Moreover, the report also shows where previous builds have failed, thus making it easier to find how many tests failed. 
+
+
+![junit-report](https://imgur.com/PkGQ5XZ.jpeg)
+
+The cobertura report provides a more greater insght into the test reports
+
+
 
 
 
