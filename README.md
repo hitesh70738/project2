@@ -172,7 +172,7 @@ Harry Volker - He has gone above beyond to help with this project and making sur
 <br>
 
 <h1>Authors</h1>
-Hitesh Patel
+Mr Hitesh Patel
 
 
 
