@@ -165,6 +165,7 @@ Overall, this project was successful in creating a service-orientated architectu
 * Try and use another swarm-worker so there are more containers
 * Add images of the car
 * integrate project tracking with the version control system
+* add a button that refreshes the page
 
 <h1>Acknowledgements</h1>
 Harry Volker - He has gone above beyond to help with this project and making sure that the fundamentals have been understood.
