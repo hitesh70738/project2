@@ -58,7 +58,6 @@ Jenkins is a CI/CD pipline tool. It triggers a build when, via a webhook, a new 
 ![stage-veiw](https://imgur.com/Yghmmj0.jpeg)
 
 <br>
-
 The above image is the build logs of the project-pipeline and shows the order of implementation for each stage. Build logs make it clear to see if a stage has passed or failed.. First, the environment variables need to be set as credentials on jenkins. Credentials such as the database uri and the author need to be set in jenkins, in order for it to know what to refference when these variables are called upon. Furthermore, the benefit of using environement variables on jenkins is that once they are set they won't need to be changed. Keeping creddentials private is very important and will be displayed in the risk assessment. For this project I used the following plugins, cobertura and junit. Cobertura allows to capture code coverage report. Jenkins will generate the trend report of coverage.  Junit provides a publisher that consumes test reports generated during the buiilds and provides visualization of th etest results. It also produces a web UI for tests reportss, tracking failure, and etc. 
 <br>
 <br>
