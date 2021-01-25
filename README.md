@@ -48,10 +48,16 @@ The image below is a visual representation of how the services works.
 <h2>CI/CD pipeline</h2>
 
 ![CI/CD pipeline](https://imgur.com/LEgktG3.jpeg)
+
 <br>
+
 Jenkins is a CI/CD pipline tool. It triggers a build when, via a webhook, a new change has been pushed to the version control system. For this project I used github as my version control system, and was connected to jenkins via a webhook. The next stage is testing. Unit tests and mock tests are written up to test the every aspect of the application. If the testing section has returned back with no bugs, the next stage will kick off. The stage after testing is the building images and pushing it to docker hub (artefact repository). Jenkins will then initialise ansible, this will intiate the swarm manager and swarm worker and will also configure nginx. Ansible will also ensure that the worker node is connected to the manager node via a join token.  Once, the swarm is initialised, the code is pulled from jenkins and any images required will be pulled from the artefact repository. Once the swarm is created and stack deployed to nginx the application is live now for the user.
 
+<br>
+
 ![stage-veiw](https://imgur.com/Yghmmj0.jpeg)
+
+<br>
 
 The above image is the build logs of the project-pipeline and shows the order of implementation for each stage. Build logs make it clear to see if a stage has passed or failed.. First, the environment variables need to be set as credentials on jenkins. Credentials such as the database uri and the author need to be set in jenkins, in order for it to know what to refference when these variables are called upon. Furthermore, the benefit of using environement variables on jenkins is that once they are set they won't need to be changed. Keeping creddentials private is very important and will be displayed in the risk assessment. For this project I used the following plugins, cobertura and junit. Cobertura allows to capture code coverage report. Jenkins will generate the trend report of coverage.  Junit provides a publisher that consumes test reports generated during the buiilds and provides visualization of th etest results. It also produces a web UI for tests reportss, tracking failure, and etc. 
 <br>
